@@ -10,10 +10,10 @@ const Footer = () => {
         left: 0,
         width: "100%",
         backgroundColor: "#f8f9fa",
-        zIndex: 1000, // Ensures it's above other elements
-        boxShadow: "0 -1px 5px rgba(0, 0, 0, 0.1)", // Adds a subtle shadow for separation
-        padding: "8px 0", // Reduced padding to make the footer thinner
-        marginBottom: "0", // Clear the bottom margin
+        zIndex: 1000, 
+        boxShadow: "0 -1px 5px rgba(0, 0, 0, 0.1)", 
+        padding: "8px 0", 
+        marginBottom: "0", 
       }}
     >
       <div className="text-center fw-semibold" style={{ fontSize: "0.875rem" }}>

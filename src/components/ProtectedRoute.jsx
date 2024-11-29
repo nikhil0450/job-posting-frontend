@@ -6,7 +6,6 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
 
     if (loading) {
-        // Show a loading spinner or placeholder while rehydrating
         return (
             <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
                 <div className="spinner-border text-primary" role="status">
@@ -16,7 +15,7 @@ const PrivateRoute = ({ children }) => {
         );
     }
 
-    return user ? children : <Navigate to="/login" />; // Redirect to login if user is not authenticated
+    return user ? children : <Navigate to="/login" />; 
 };
 
 export default PrivateRoute;

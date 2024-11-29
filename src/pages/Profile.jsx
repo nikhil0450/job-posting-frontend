@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AuthContext from "../context/AuthContext";
-import Loader from "../components/Loader"; // Import the Loader component
+import Loader from "../components/Loader"; 
 
 const Profile = () => {
-  const { logout } = useContext(AuthContext); // Use logout from context
+  const { logout } = useContext(AuthContext); 
   const [profile, setProfile] = useState({});
   const [jobs, setJobs] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const [loadingJobs, setLoadingJobs] = useState(true); // State to track jobs loading
+  const [loadingJobs, setLoadingJobs] = useState(true); 
   const [jobToEdit, setJobToEdit] = useState(null);
   const [updatedJob, setUpdatedJob] = useState({
     company: "",
@@ -24,7 +24,6 @@ const Profile = () => {
 
   const token = JSON.parse(localStorage.getItem("user"))?.token;
 
-  // Fetch profile and user's jobs
   useEffect(() => {
     const fetchProfileAndJobs = async () => {
       try {
@@ -48,14 +47,13 @@ const Profile = () => {
       } catch (error) {
         console.error("Error fetching profile or jobs:", error);
       } finally {
-        setLoadingJobs(false); // Stop the loader for jobs once data is fetched
+        setLoadingJobs(false); 
       }
     };
 
     fetchProfileAndJobs();
   }, [token]);
 
-  // Handle profile update
   const updateProfile = async (e) => {
     e.preventDefault();
     try {
@@ -65,7 +63,7 @@ const Profile = () => {
         { username, email },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      setProfile(response.data.user || response.data); // Adjust based on the API response structure
+      setProfile(response.data.user || response.data); 
       alert("Profile updated successfully!");
       setEditMode(false);
     } catch (error) {
@@ -86,7 +84,7 @@ const Profile = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Profile deleted successfully.");
-      logout(); // Log the user out
+      logout(); 
     } catch (error) {
       console.error("Error deleting profile:", error);
       alert("Failed to delete profile. Please try again later.");

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import AuthContext from "../context/AuthContext"; // Import AuthContext
+import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
 const Home = () => {
-  const { user } = useContext(AuthContext); // Access user from AuthContext
+  const { user } = useContext(AuthContext); 
 
   return (
   <>

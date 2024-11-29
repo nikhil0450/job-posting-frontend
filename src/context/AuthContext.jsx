@@ -4,7 +4,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(true); // Track loading state
+    const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
             const parsedUser = JSON.parse(storedUser);
             setUser(parsedUser.user);
         }
-        setLoading(false); // Rehydration complete
+        setLoading(false); 
     }, []);
 
     const login = (data) => {

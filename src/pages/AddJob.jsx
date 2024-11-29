@@ -12,7 +12,7 @@ const AddJob = () => {
         location: '',
     });
 
-    const [message, setMessage] = useState({ text: '', type: '' }); // State for success or error message
+    const [message, setMessage] = useState({ text: '', type: '' }); 
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -23,21 +23,21 @@ const AddJob = () => {
         e.preventDefault();
         try {
             const token = JSON.parse(localStorage.getItem('user'))?.token;
-            // Ensure all fields are included in the request
+            
             const jobData = { ...formData };
 
             await axios.post(`${import.meta.env.VITE_BACKEND_URL}/jobs`, jobData, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
-            setMessage({ text: 'Job posted successfully!', type: 'success' });  // Success message
-            setTimeout(() => navigate('/jobs'), 3000); // Navigate after 3 seconds
+            setMessage({ text: 'Job posted successfully!', type: 'success' });  
+            setTimeout(() => navigate('/jobs'), 3000); 
         } catch (error) {
             console.error(error.response?.data || 'An error occurred');
             setMessage({
                 text: error.response?.data?.message || 'Failed to post job',
                 type: 'error',
-            });  // Error message
+            });  
         }
     };
 

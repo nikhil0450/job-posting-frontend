@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import Loader from "../components/Loader";
 import Footer from "../components/Footer";
-import AuthContext from "../context/AuthContext"; // Import AuthContext
+import AuthContext from "../context/AuthContext"; 
 
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +10,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
-  const { login } = useContext(AuthContext); // Use login method from AuthContext
+  const { login } = useContext(AuthContext); 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -20,13 +19,11 @@ const Signup = () => {
     setMessage({ type: "", text: "" });
 
     try {
-      // Call the signup API
       const { data } = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/auth/signup`,
         { username, email, password }
       );
 
-      // Save user and token using the login function from AuthContext
       login(data);
       setMessage({ type: "success", text: "Signup successful! Redirecting please wait..." });
       setTimeout(() => navigate("/jobs"), 1500); 

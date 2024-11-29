@@ -1,17 +1,16 @@
-/* NotFound.css */
 .notfound-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full height */
+    height: 100vh; 
     position: relative;
-    top: -150px; /* Offset the page to avoid overlap with the navbar */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    top: -150px; 
+    overflow-x: hidden; 
   }
   
   .notfound-content {
     padding: 40px;
-    background-color: transparent; /* No background color */
+    background-color: transparent; 
     text-align: center;
   }
   

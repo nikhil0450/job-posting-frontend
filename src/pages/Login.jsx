@@ -26,7 +26,7 @@ const Login = () => {
       setMessage({ type: "success", text: "Login successful!" });
       setTimeout(() => navigate("/jobs"), 1500); 
     } catch (error) {
-      // Check for specific error responses
+      
       if (error.response?.data?.message === "User not found") {
         setMessage({ type: "danger", text: "User does not exist. Please sign up." });
       } else if (error.response?.data?.message === "Incorrect password") {

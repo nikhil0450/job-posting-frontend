@@ -5,7 +5,6 @@ import AuthContext from '../context/AuthContext';
 const Navbar = () => {
     const { user, logout, loading } = useContext(AuthContext);
 
-    // Prevent navbar rendering until loading is complete
     if (loading) return null;
 
     return (
@@ -14,7 +13,6 @@ const Navbar = () => {
             <Link className="navbar-brand" to="/">
                 myJobs
             </Link>
-            {/* Toggle button for smaller screens */}
             <button
                 className="navbar-toggler"
                 type="button"
@@ -26,7 +24,6 @@ const Navbar = () => {
             >
                 <span className="navbar-toggler-icon"></span>
             </button>
-            {/* Collapsible menu */}
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ms-auto">
                     {user ? (
